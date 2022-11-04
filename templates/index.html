@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Book List</h1> <img src="static/books.jpeg" alt="pile of books" class="images">
+
+{% for book in books %}
+<div id="bookdisplay">
+    <p>
+        {{ book.title }} by {{book.author}} 
+        {% if book.checked_out == False %}
+        <span>✅</span>
+        {% else %}
+        <span>❌</span>
+        {% endif %} <br>
+        <a href="books/{{ loop.index }}">Details</a> 
+        <form action="/books/delete/{{ loop.index }}" method="post">
+            <input type="submit" value="Remove Book" class="button">
+        </form>
+        <form action="/books/{{ loop.index }}/status" method="post">
+            <input type="submit" value="Update Availability Status" class="button">
+        </form>
+    </p>
+</div>
+{% endfor %}
+<div id="inputform">
+<form action="/books" method="post">
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" required>
+    <label for="author">Author: </label>
+    <input type="text" name="author" id="author" required>
+    <label for="genre">Genre: </label>
+    <input type="text" name="genre" id="genre" required>
+    <br>
+    <br> <br>
+    <!-- <label for="recurring">Recurring?</label>
+    <select name="recurring" id="recurring">
+      <option value="True">Yes</option>
+      <option value="">No</option> -->
+    <input type="submit" value="Add Book" class="button">
+    
+  </form>
+</div>
+
+
+
+{% endblock %}

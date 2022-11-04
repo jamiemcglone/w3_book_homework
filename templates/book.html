@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+        <title>{{title}} - Book View </title>
+    </head>
+    <body>
+        <h1>Book Details</h1>
+        <img src="/static/book.png" alt="a single book" id="bookimageleft"> <img src="/static/book.png" alt="a single book" id="bookimageright">
+        <div id="bookdetails">
+            <p>
+                Title: {{ book.title }} <br>
+                Author: {{ book.author }} <br>
+                Genre: {{ book.genre }}<br>
+                {% if book.checked_out == False %}
+                <span>Available: ✅</span>
+                {% else %}
+                <span>Available: ❌</span>
+                {% endif %}
+                <br>
+            </p>
+        </div>
+    </body>
+{% endblock %}

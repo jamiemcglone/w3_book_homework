@@ -1,0 +1,42 @@
+body {
+    background-color: antiquewhite;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.images {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    right: 0;
+}
+
+#bookimageleft {
+    size:250px;
+    position: absolute;
+    left: 0;
+
+}
+
+#bookimageright {
+    size:250px;
+    position: absolute;
+    right: 0;
+
+}
+#bookdisplay {
+    align-items: center;
+    font-size: large;
+    display: flex;
+    gap: 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.button:hover {
+    background-color: red;
+}
+
+#bookdetails {
+    text-align: center;
+}
